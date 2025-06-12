@@ -1,0 +1,27 @@
+.footer
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: #ffffff;
+    color: #333333;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0));
+
+    .contact, .address
+    {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 20px;
+
+    }
+    .instagramLink
+    {
+        display: flex;
+        cursor: pointer;
+        height: 24px;
+        gap: 5px;
+    }
+}

@@ -1,0 +1,22 @@
+.sizeSelector
+{
+  margin: 20px 0;
+  .sizeOptions
+  {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    button
+    {
+      padding: 10px;
+      border: 1px solid #cccccc;
+      background-color: #ffffff;
+      cursor: pointer;
+      &.selectedSize
+      {
+        border-color: #333333;
+      }
+    }
+  }
+}
