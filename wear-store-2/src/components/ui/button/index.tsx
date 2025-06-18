@@ -1,18 +1,31 @@
 import React from 'react';
-import styles from './style.module.scss';
-import { StaticImageData } from 'next/image';
 import Image from 'next/image';
+import { StaticImageData } from 'next/image';
 interface ButtonProps {
-   icon?: string | StaticImageData;
-  text?: string
-  onClick?: () => void
+  icon?: StaticImageData;
+  text?: string;
+  onClick?: () => void;
 }
 
 const Button: React.FC<ButtonProps> = ({ icon, text, onClick }) => {
   return (
-    <button className={styles.button} onClick={onClick}>
-      {icon && <Image src={icon} alt="icon" className={styles.icon} />}
-      {text && <span className={styles.text}>{text}</span>}
+    <button
+      className="flex items-center
+      justify-center mx-auto p-[10px] border-none rounded-[5px] bg-[#fff] text-[#333] cursor-pointer transition-colors duration-300 ease-[ease] hover:bg-[#eeeeee]"
+      onClick={onClick}
+    >
+      {icon && (
+        <Image
+          src={icon} 
+          alt="icon" 
+          className="px-[5px] flex items-center" 
+        />
+      )}
+      {text && (
+        <span className="text-[16px] font-medium">
+          {text}
+        </span>
+      )}
     </button>
   );
 };

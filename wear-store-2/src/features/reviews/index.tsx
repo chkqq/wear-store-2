@@ -1,4 +1,3 @@
-import styles from './style.module.scss'
 import { useEffect, useState } from 'react'
 
 interface Review {
@@ -33,31 +32,32 @@ export default function Reviews({ productId }: ReviewsProps) {
     }
   }, [productId])
 
-
   return (
-    <div className={styles.reviewsContainer}>
-      <h3 className={styles.title}>Отзывы пользователей:</h3>
+    <div className="mt-[30px] w-[30%] bg-[#fff] p-[20px] rounded-[8px] shadow-[0_0_10px_rgba(0,0,0,0.1)] mb-[20px]">
+      <h3 className="text-[1.5rem] mb-[10px] text-center">Отзывы пользователей:</h3>
+      
       {averageRating !== null && (
-        <div className={styles.averageRating}>
+        <div className="text-[20px]">
           <p>Средняя оценка: {averageRating.toFixed(1)}</p>
         </div>
       )}
+
       {reviews.length === 0 ? (
-        <p className={styles.noReviews}>Пока нет отзывов для этого товара.</p>
+        <p className="text-[#666666]">Пока нет отзывов для этого товара.</p>
       ) : (
-        <div className={styles.reviews}>
+        <div>
           {reviews.map(review => (
-            <div key={review.id} className={styles.review}>
-              <div className={styles.rating}>
-                <p className={styles.ratingLabel}>Оценка:</p>
-                <div className={styles.stars}>
+            <div key={review.id} className="border-b border-[#eeeeee] py-[10px]">
+              <div className="flex items-center mb-[5px]">
+                <span className="font-bold mr-[10px]">Оценка:</span>
+                <div className="text-black">
                   {[...Array(review.rating)].map((_, index) => (
-                    <span key={index} className={styles.star}>&#9733;</span>
+                    <span key={index} className="text-[1.2rem]">&#9733;</span>
                   ))}
                 </div>
               </div>
-              <p className={styles.comment}>Комментарий: {review.comment}</p>
-              <p className={styles.date}>Дата: {review.date}</p>
+              <p className="mb-[5px]">Комментарий: {review.comment}</p>
+              <p className="text-[#666666] text-[0.9rem]">Дата: {review.date}</p>
             </div>
           ))}
         </div>

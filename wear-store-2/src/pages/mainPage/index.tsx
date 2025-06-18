@@ -1,5 +1,4 @@
 "use client";
-import styles from './style.module.scss'
 import Header from '@/components/widgets/header'
 import Footer from '@/components/widgets/footer'
 import ProductCardList from '@/components/widgets/productCardList'
@@ -37,29 +36,36 @@ const MainPage: React.FC = () => {
   }
 
   const newArrivals = products
-  .filter(product => product.newArrival)
-  .map(product => ({
-    ...product,
-    averageRating: getAverageRating(product.id),
-  }))
+    .filter(product => product.newArrival)
+    .map(product => ({
+      ...product,
+      averageRating: getAverageRating(product.id),
+    }))
 
   return (
-    <div className={styles.background}>
+    <div className="text-[#333333]">
       <Header />
-      <div className={styles.gifBox}>
-        <div className={styles.gif}>
+      
+      {/* GIF Section */}
+      <div className="flex justify-center bg-[#000] h-[90vh]">
+        <div 
+          className="flex flex-col items-center justify-center text-[#f5f5f5] [text-shadow:_-1px_-1px_0_#333,_1px_-1px_0_#333,_-1px_1px_0_#333,_1px_1px_0_#333] bg-cover bg-[url('/pics/sea.gif')] w-[70%] h-full"
+        >
           <h1>=WEAR SHOP=</h1>
           <h1>Магазин Авангардной одежды</h1>
           <p>По адресу:</p>
           <p>?????????????????????????</p>
         </div>
       </div>
-      <div className={styles.photosAndAboutUs}>
-        <div className={styles.shopPhotos}>
+
+      {/* Photos and About Us Section */}
+      <div className="flex flex-row justify-evenly mt-[60px]">
+        <div className="flex flex-col w-[700px] h-[500px]">
           <img src='/pics/RealPhoto2.png' alt="Shop Photo 2" />
           <img src='/pics/RealPhoto3.png' alt="Shop Photo 3" />
         </div>
-        <div className={styles.aboutUs}>
+        
+        <div className="flex flex-col gap-[50px] mt-[5.5%] text-[25px] w-[700px]">
           <h1>О нас:</h1>
           <p>
             Магазин авангардной одежды, предлагающий бренды такие как Rick Owens, Balenciaga и Vetements, является местом, где стиль и мода встречаются с уникальным выражением индивидуальности и креативности. Такие магазины привлекают модных энтузиастов, которые ищут что-то уникальное, смелое и необычное.
@@ -70,11 +76,14 @@ const MainPage: React.FC = () => {
           </p>
         </div>
       </div>
-      <div className={styles.newArrivalsSection}>
-        <h2>Новинки</h2>
+
+      {/* New Arrivals Section */}
+      <div className="flex flex-col mx-[20%] w-[60%] gap-[20px] my-[40px]">
+        <h2 className="text-center">Новинки</h2>
         <ProductCardList filteredProducts={newArrivals} />
         <Button text='Смотреть весь каталог' onClick={handleShoppingCartClick} />
       </div>
+      
       <Footer />
     </div>
   )

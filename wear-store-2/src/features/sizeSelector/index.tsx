@@ -1,5 +1,4 @@
 import React from 'react'
-import styles from './style.module.scss'
 
 interface SizeSelectorProps {
   sizes: string[]
@@ -9,13 +8,13 @@ interface SizeSelectorProps {
 
 const SizeSelector: React.FC<SizeSelectorProps> = ({ sizes, selectedSize, onSelectSize }) => {
   return (
-    <div className={styles.sizeSelector}>
+    <div className="my-[20px]">
       <p>Выберите размер:</p>
-      <div className={styles.sizeOptions}>
+      <div className="flex justify-center flex-wrap gap-[10px]">
         {sizes.map(size => (
           <button
             key={size}
-            className={selectedSize === size ? styles.selectedSize : ''}
+            className={`p-[10px] border ${selectedSize === size ? 'border-1 border-[#333]' : 'border-[#cccccc]'} bg-white cursor-pointer`}
             onClick={() => onSelectSize(size)}
           >
             {size}

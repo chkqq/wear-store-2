@@ -1,4 +1,3 @@
-import styles from './style.module.scss'
 import React, { useState } from 'react'
 import Button from '../../ui/button'
 import TextInput from '../../ui/inputText'
@@ -21,7 +20,11 @@ const DeliveryForm: React.FC<DeliveryFormProps> = ({ onSubmit }) => {
   }
 
   return (
-    <form className={styles.deliveryForm} onSubmit={handleSubmit}>
+    <form className="flex
+      flex-col 
+      items-center 
+      gap-[10px]" 
+    onSubmit={handleSubmit}>
       <TextInput
         name="name"
         placeholder="Фамилия Имя Отчество"

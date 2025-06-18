@@ -1,6 +1,5 @@
 import React from 'react'
 import ProductCard from '@/features/productCard'
-import styles from './style.module.scss'
 
 export interface Product {
   id: number
@@ -21,7 +20,7 @@ interface Props {
 
 const ProductCardList: React.FC<Props> = ({ filteredProducts }) => {
   return (
-    <div className={styles.productCardList}>
+    <div className="flex flex-row flex-wrap mt-[100px] gap-y-[10px] justify-between w-full">
       {filteredProducts.map(product => (
         <ProductCard key={product.id} product={product} />
       ))}

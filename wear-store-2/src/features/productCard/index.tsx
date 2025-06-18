@@ -1,6 +1,5 @@
 import React from 'react'
 import Link from 'next/link'
-import styles from './style.module.scss'
 
 interface Product {
   id: number
@@ -18,18 +17,31 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   return (
-    <div className={styles.productCard}>
-      <Link href={`/product/${product.id}`} className={styles.productCardLink}>
-        <div className={styles.productCardPicture}>
-          <img src={product.image1} alt={product.name} className={styles.productCardImage} />
-          <img src={product.image2} alt={product.name} className={styles.productCardImageHover} />
+    <div className="w-[230px] h-[380px] bg-[#fff] px-[20px] relative cursor-pointer group">
+      <Link 
+        href={`/product/${product.id}`} 
+        className="no-underline text-inherit"
+      >
+        <div className="w-[230px] h-[300px] bg-cover bg-center bg-no-repeat relative">
+          <img 
+            src={product.image1} 
+            alt={product.name} 
+            className="absolute top-0 left-0 w-full h-full opacity-100 transition-opacity duration-500 ease-in-out group-hover:opacity-0" 
+          />
+          <img 
+            src={product.image2} 
+            alt={product.name} 
+            className="absolute top-0 left-0 w-full h-full opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-100" 
+          />
         </div>
-        <div className={styles.ProductCardNameAndPriceBox}>
-          {product.newArrival && <p className={styles.newArrivalLabel}>Новинка</p>}
-          <p className={styles.productCardName}>{product.name}</p>
-          <div className={styles.ProductCardPriceAndRating}>
-            <p className={styles.productCardPrice}>${product.price}</p>
-            <p className={styles.productCardRating}>{product.averageRating.toFixed(1)}&#9733;</p>
+        <div className="text-[14px] mt-[10px]">
+          {product.newArrival && (
+            <p className="font-[300] text-red-600">Новинка</p>
+          )}
+          <p className="font-[600]">{product.name}</p>
+          <div className="flex justify-between">
+            <div>${product.price}</div>
+            <div>{product.averageRating.toFixed(1)}&#9733;</div>
           </div>
         </div>
       </Link>

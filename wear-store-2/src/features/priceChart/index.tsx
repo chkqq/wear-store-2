@@ -1,4 +1,3 @@
-import styles from './style.module.scss';
 import React from 'react';
 import { VictoryLine, VictoryChart, VictoryAxis, VictoryTooltip, VictoryVoronoiContainer } from 'victory';
 
@@ -18,8 +17,8 @@ const PriceChart: React.FC<PriceChartProps> = ({ data }) => {
   };
 
   return (
-    <div className={styles.priceChartBox}>
-      <h2 className={styles.title}>История изменения цены</h2>
+    <div>
+      <h2 className="text-center">История изменения цены</h2>
       
       <VictoryChart
         width={800}
@@ -29,7 +28,7 @@ const PriceChart: React.FC<PriceChartProps> = ({ data }) => {
         <VictoryAxis
           tickFormat={(x) => formatDate(x)} // Форматируем даты на оси X
           style={{
-            tickLabels: { fontSize: 10, angle: -45, textAnchor: 'end' }, // Наклонные подписи
+            tickLabels: { fontSize: 14, textAnchor: 'end' }, // Наклонные подписи
           }}
         />
         <VictoryAxis dependentAxis /> {/* Ось Y */}

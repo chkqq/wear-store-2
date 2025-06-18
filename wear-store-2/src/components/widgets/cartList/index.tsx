@@ -1,4 +1,3 @@
-import styles from './style.module.scss'
 import CartListElement from '@/features/cartListElement'
 import { useCartStore } from '@/store/cartStore'
 const CartList: React.FC = () => {
@@ -9,7 +8,7 @@ const CartList: React.FC = () => {
     }
 
     return(
-      <div className={styles.list}>
+      <div>
         {cartItems.map(item => (
           <CartListElement
             key={`${item.id}-${item.size}`}
